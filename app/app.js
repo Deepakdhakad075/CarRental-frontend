@@ -3,29 +3,27 @@ import React from 'react';
 import { Route, Routes, BrowserRouter, useLocation } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
-import { configureStore } from '@reduxjs/toolkit';
-import createSagaMiddleware from 'redux-saga';
-import createReducer from './redux/reducers';
-import rootSaga from './redux/rootSaga';
 import { Landing, NotFound } from './containers/pageListAsync';
 import LoginPage from './containers/Auth/LoginPage';
 import RegistrationPage from './containers/Auth/RegistrationPage';
 import Navbar from './containers/Layout/Navbar/Navbar';
 import Footer from './containers/Layout/Footer/Footer';
 import FilterLayout from './containers/Layout/Filter/FilterLayout';
+import store from './redux/store';
+import CarListingPage from './containers/Layout/CarListingPage';
 
-const sagaMiddleware = createSagaMiddleware();
-const reducer = createReducer();
-const store = configureStore({
-  reducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(sagaMiddleware),
-  devTools:
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-    window.__REDUX_DEVTOOLS_EXTENSION__(),
-});
+// const sagaMiddleware = createSagaMiddleware();
+// const reducer = createReducer();
+// const store = configureStore({
+//   reducer,
+//   middleware: (getDefaultMiddleware) =>
+//     getDefaultMiddleware().concat(sagaMiddleware),
+//   devTools:
+//     window.__REDUX_DEVTOOLS_EXTENSION__ &&
+//     window.__REDUX_DEVTOOLS_EXTENSION__(),
+// });
 
-sagaMiddleware.run(rootSaga);
+// sagaMiddleware.run(rootSaga);
 
 function AppContent() {
   const location = useLocation();
@@ -40,6 +38,8 @@ function AppContent() {
         <Route path="/registration" element={<RegistrationPage />} />
         <Route path="/filter" element={<FilterLayout />} />
         <Route path="/" element={<Landing />} />
+        <Route path="/cars/:city" element={<CarListingPage />} />
+
         <Route path="/*" element={<NotFound />} />
       </Routes>
       {!hideNavbar && <Footer />}
