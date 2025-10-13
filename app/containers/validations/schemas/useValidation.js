@@ -15,8 +15,7 @@ export const registrationFormSchema = Yup.object({
     .required('Email is required')
     .email('Please enter a valid email'),
 
-  phoneCountryCode: Yup.string()
-    .required('Country code is required'),
+  phoneCountryCode: Yup.string().required('Country code is required'),
 
   phoneNumber: Yup.string()
     .required('Phone number is required')
@@ -26,7 +25,7 @@ export const registrationFormSchema = Yup.object({
     .required('Date of Birth is required')
     .matches(
       /^([0-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d{4}$/,
-      'Date of Birth must be in DD/MM/YYYY format'
+      'Date of Birth must be in DD/MM/YYYY format',
     ),
 
   gender: Yup.string()
