@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from '@/components/custom-pages/container';
+import Breadcrumb from '@/components/custom-pages/Breadcrumb';
 
 function About() {
   return (
@@ -14,7 +15,27 @@ function About() {
           >
             About Us
           </h1>
-          <div className="ma px-4 text-gray-700 text-base leading-relaxed space-y-6">
+          <div className="text-center mb-6">
+            <Breadcrumb
+              items={[{ label: 'Home', href: '/' }, { label: 'About' }]}
+            />
+          </div>
+
+          <div className="px-4 text-gray-700 text-base leading-relaxed space-y-6 text-left">
+            <p>
+              <strong>MyChoize Self Drive Cars</strong> is a self-drive car
+              rental service powered by <strong>ORIX</strong>, Japan’s
+              second-largest car rental company. With a fleet of over{' '}
+              <strong>63,000 vehicles</strong>, we bring Japanese innovation,
+              reliability, and convenience to Indian roads. Lorem ipsum dolor
+              sit amet, consectetur adipisicing elit. Deserunt facere, sint
+              cumque ipsa eum iusto voluptatem blanditiis assumenda, harum,
+              quidem quae enim! Quasi ducimus ab, veniam magnam velit architecto
+              dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptatem veniam nihil esse adipisci eaque et! Tempora
+              voluptatibus quis numquam blanditiis ea fugiat, recusandae
+              repellat et est ab, nihil cumque mollitia?
+            </p>
             <p>
               <strong>MyChoize Self Drive Cars</strong> is a self-drive car
               rental service powered by <strong>ORIX</strong>, Japan’s

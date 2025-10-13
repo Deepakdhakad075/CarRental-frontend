@@ -15,6 +15,7 @@ import Footer from './containers/Layout/Footer/Footer';
 import FilterLayout from './containers/Layout/Filter/FilterLayout';
 import Fleets from './containers/Layout/Fleets/Fleets';
 import About from './containers/Layout/About/About';
+import Faq from './containers/Layout/FAQ/Faq';
 
 const sagaMiddleware = createSagaMiddleware();
 const reducer = createReducer();
@@ -43,6 +44,7 @@ function AppContent() {
         <Route path="/filter" element={<FilterLayout />} />
         <Route path="/fleets" element={<Fleets />} />
         <Route path="/about" element={<About />} />
+        <Route path="/faq" element={<Faq />} />
         <Route path="/" element={<Landing />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
