@@ -9,6 +9,8 @@ import RegistrationPage from './containers/Auth/RegistrationPage';
 import Navbar from './containers/Layout/Navbar/Navbar';
 import Footer from './containers/Layout/Footer/Footer';
 import FilterLayout from './containers/Layout/Filter/FilterLayout';
+import Fleets from './containers/Layout/Fleets/Fleets';
+import About from './containers/Layout/About/About';
 import store from './redux/store';
 import CarListingPage from './containers/Layout/CarListingPage';
 
@@ -37,6 +39,8 @@ function AppContent() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/registration" element={<RegistrationPage />} />
         <Route path="/filter" element={<FilterLayout />} />
+        <Route path="/fleets" element={<Fleets />} />
+        <Route path="/about" element={<About />} />
         <Route path="/" element={<Landing />} />
         <Route path="/cars/:city" element={<CarListingPage />} />
 
