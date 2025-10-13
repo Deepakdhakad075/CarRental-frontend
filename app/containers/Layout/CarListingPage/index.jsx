@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import FilterLayout from "../Filter/FilterLayout";
-import CarFilterSidebar from "../Filter/CarFilterSidebar";
-import Breadcrumb from "../Breadcrumb";
-import SortBar from "../Filter/SortBar";
+import React, { useState } from 'react';
+import FilterLayout from '../Filter/FilterLayout';
+import CarFilterSidebar from '../Filter/CarFilterSidebar';
+import Breadcrumb from '../Breadcrumb';
+import SortBar from '../Filter/SortBar';
 
+import CarCardsGroup from '../Filter/CarCard/CarCard';
 const CarListingPage = () => {
   const [showFilter, setShowFilter] = useState(false);
 
@@ -14,7 +15,6 @@ const CarListingPage = () => {
 
       {/* ✅ Header Area (Breadcrumb + Car Count + Sort) */}
       <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-        
         {/* Breadcrumb - top in mobile */}
         <Breadcrumb />
 
@@ -47,12 +47,9 @@ const CarListingPage = () => {
         {/* Car Cards Container */}
         <div className="flex-1">
           {/* Your car cards list goes here */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {/* Example placeholder */}
-            <div className="border p-4 rounded-lg shadow">Car Card 1</div>
-            <div className="border p-4 rounded-lg shadow">Car Card 2</div>
-            <div className="border p-4 rounded-lg shadow">Car Card 3</div>
-          </div>
+        
+            <CarCardsGroup />
+       
         </div>
       </div>
 
