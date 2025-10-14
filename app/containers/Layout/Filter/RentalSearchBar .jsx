@@ -1,87 +1,86 @@
 import React from 'react';
 import CustomDatePicker from '@/components/custom-datepicker/DatePicker';
 import CustomButton from '@/components/custom-button/Button';
-import { useRentalTab } from '@/contexts/RentalTabProvider';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  setLocation,
+  setPickUpDate,
+  setReturnDate,
+} from '@/redux/slices/filterSlice';
 
 const RentalSearchBar = () => {
-  const { activeTab, setActiveTab } = useRentalTab();
-  const [pickUpDate, setPickUpDate] = React.useState(null);
-  const [returnDate, setReturnDate] = React.useState(null);
+  const dispatch = useDispatch();
+  const { location, pickUpDate, returnDate } = useSelector(
+    (state) => state.filters
+  );
 
   const handleSearch = () => {
-    // logic for search (e.g., trigger backend fetch, navigate, etc.)
+    console.log('Filters:', { location, pickUpDate, returnDate });
+    // Perform fetch or navigation here
   };
 
   return (
-    
-      <div className="w-full mt-20 bg-gray-200   p-1 md:p-6  flex flex-col md:flex-row items-center gap-3 md:gap-6"
-      style={{}}>
-        {/* Location */}
-        <div className="flex flex-col w-full md:w-1/3">
-          <label className="text-sm font-semibold text-gray-700 mb-1">
-            Location
-          </label>
-          <select className="border rounded px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 transition w-full text-sm md:text-base">
-            <option>Udaipur</option>
-            <option>Jaipur</option>
-            <option>Delhi</option>
-          </select>
-        </div>
+    <div className="flex flex-col font-montserrat md:flex-row items-center justify-evenly gap-3 md:gap-4 w-full mt-10 p-2 md:px-6 bg-purple-50 rounded-lg shadow-md">
+      
+      {/* Location */}
+  <div className="flex flex-col w-[100px] md:w-1/6 gap-0 cursor-pointer">
+  <label
+    htmlFor="location"
+    className="text-sm pl-2 font-semibold text-gray-700 cursor-pointer"
+  >
+    Location
+  </label>
+  <div className="relative">
+    <select
+      id="location"
+      value={location}
+      onChange={(e) => dispatch(setLocation(e.target.value))}
+      className="appearance-none w-full text-12 px-2 rounded-lg bg-purple-50 text-gray-500 cursor-pointer focus:outline-none"
+    >
+      <option value="">Add City</option>
+      <option value="Udaipur">Udaipur</option>
+      <option value="Jaipur">Jaipur</option>
+      <option value="Delhi">Delhi</option>
+    </select>
+  </div>
+</div>
 
-        {/* Daily Rentals */}
-        {activeTab === 'daily' && (
-          <>
-            <div className="flex flex-col w-full md:w-1/2">
-              <label className="text-sm font-semibold text-gray-700 mb-1">
-                Pick-Up Date & Time
-              </label>
-              <CustomDatePicker
-                selected={pickUpDate}
-                onChange={setPickUpDate}
-                showTimeSelect
-                placeholderText="Select pick-up date"
-              />
-            </div>
 
-            <div className="flex flex-col w-full md:w-1/2">
-              <label className="text-sm font-semibold text-gray-700 mb-1">
-                Return Date & Time
-              </label>
-              <CustomDatePicker
-                selected={returnDate}
-                onChange={setReturnDate}
-                showTimeSelect
-                placeholderText="Select return date"
-              />
-            </div>
-          </>
-        )}
+      {/* Pick-Up Date */}
+      <div className="flex flex-col w-full md:w-1/4">
+        <CustomDatePicker
+          label="Pick-Up Date & Time"
+          selected={pickUpDate}
+          onChange={(date) => dispatch(setPickUpDate(date))}
+          showTimeSelect
+          placeholderText="Select pick-up date"
+          bgColor="bg-purple-50"
+        />
+      </div>
 
-        {/* Monthly Subscription */}
-        {activeTab === 'monthly' && (
-          <div className="flex flex-col w-full md:w-1/2">
-            <label className="text-sm font-semibold text-gray-700 mb-1">
-              Pick-Up Date & Time
-            </label>
-            <CustomDatePicker
-              selected={pickUpDate}
-              onChange={setPickUpDate}
-              showTimeSelect
-              placeholderText="Select pick-up date"
-            />
-          </div>
-        )}
+      {/* Return Date */}
+      <div className="flex flex-col w-full md:w-1/4">
+        <CustomDatePicker
+          label="Return Date & Time"
+          selected={returnDate}
+          onChange={(date) => dispatch(setReturnDate(date))}
+          showTimeSelect
+          placeholderText="Select return date"
+          bgColor="bg-purple-50"
+        />
+      </div>
 
-        {/* Search Button */}
+      {/* Search Button */}
+      <div className="flex w-full md:w-auto mt-2 md:mt-0">
         <CustomButton
           variant="primary"
-          className="bg-indigo-700 text-white hover:bg-indigo-800 rounded-full px-6 md:px-8 py-2 font-semibold shadow-md transition w-full md:w-auto text-sm md:text-base"
+          className="bg-purple-700 text-white hover:bg-purple-800 px-6 py-2 !rounded-full font-semibold shadow-md w-full md:w-auto text-sm md:text-base"
           onClick={handleSearch}
         >
           Search
         </CustomButton>
       </div>
-    
+    </div>
   );
 };
 

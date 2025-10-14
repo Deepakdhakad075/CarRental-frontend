@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import FilterLayout from '../Filter/FilterLayout';
 import CarFilterSidebar from '../Filter/CarFilterSidebar';
-import Breadcrumb from '@/components/custom-pages/Breadcrumb';
-// import Breadcrumb from '../Breadcrumb';
+import Breadcrumb from '../Breadcrumb';
 import SortBar from '../Filter/SortBar';
 
 import CarCardsGroup from '../Filter/CarCard/CarCard';
@@ -15,15 +14,9 @@ const CarListingPage = () => {
       <FilterLayout />
 
       {/* ✅ Header Area (Breadcrumb + Car Count + Sort) */}
-      <div className="mt-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+      <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
         {/* Breadcrumb - top in mobile */}
-        <Breadcrumb
-          items={[
-            { label: 'Home', href: '/' },
-            { label: 'Cars', href: '/' },
-            { label: 'Jaipur Listings' },
-          ]}
-        />
+        <Breadcrumb />
 
         {/* Car Count + Sort */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
