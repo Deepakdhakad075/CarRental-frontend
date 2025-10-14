@@ -43,6 +43,8 @@ function AppContent() {
         <Route path="/registration" element={<RegistrationPage />} />
         <Route path="/filter" element={<FilterLayout />} />
         <Route path="/fleets" element={<Fleets />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/Everification" element={<Everification />} />
         <Route path="/about" element={<About />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/" element={<Landing />} />
