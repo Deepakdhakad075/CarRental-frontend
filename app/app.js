@@ -13,6 +13,9 @@ import Fleets from './containers/Layout/Fleets/Fleets';
 import About from './containers/Layout/About/About';
 import store from './redux/store';
 import CarListingPage from './containers/Layout/CarListingPage';
+import Faq from './containers/Layout/FAQ/Faq';
+import Profile from './containers/Profile/Profile';
+import Everification from './containers/Layout/Everification/E-verification';
 import 'react-toastify/dist/ReactToastify.css';
 
 function AppContent() {
@@ -28,8 +31,13 @@ function AppContent() {
         <Route path="/registration" element={<RegistrationPage />} />
         <Route path="/filter" element={<FilterLayout />} />
         <Route path="/fleets" element={<Fleets />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/Everification" element={<Everification />} />
         <Route path="/about" element={<About />} />
+        <Route path="/faq" element={<Faq />} />
         <Route path="/" element={<Landing />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/custom-verification" element={<Everification />} />
         <Route path="/cars/:city" element={<CarListingPage />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>

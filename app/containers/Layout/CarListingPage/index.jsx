@@ -47,9 +47,8 @@ const CarListingPage = () => {
         {/* Car Cards Container */}
         <div className="flex-1">
           {/* Your car cards list goes here */}
-        
-            <CarCardsGroup />
-       
+
+          <CarCardsGroup />
         </div>
       </div>
 
