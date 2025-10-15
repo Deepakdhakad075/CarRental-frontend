@@ -45,7 +45,7 @@ const promoFeatures = [
     ),
     title: 'Easy Cancellation',
     description:
-      'Change of plans made easy with MyChoize. Enjoy the flexibility to cancel your rental car reservation with just a few clicks.',
+      'Change of plans made easy with ZoomRide. Enjoy the flexibility to cancel your rental car reservation with just a few clicks.',
     bg: 'bg-red-50',
   },
   {
@@ -82,7 +82,7 @@ const PromoFeatures = () => {
         <h2 className="text-3xl font-extrabold text-indigo-900 leading-tight inline-block">
           Why ride with{' '}
           <span className="relative inline-block text-indigo-900">
-            MyChoize?
+            ZOOM RIDE?
             {/* Dots container inside the word */}
             {/* <span className="absolute -top-4 right-0 flex flex-col items-center gap-[2px]">
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-900 opacity-70"></span>

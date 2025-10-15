@@ -1,17 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Menu, X } from "lucide-react"; 
+import { Menu, X, ChevronDown } from "lucide-react";
+import { useSelector, useDispatch } from "react-redux";
 import CustomButton from "@/components/custom-button/Button";
+import { logoutUser } from "@/redux/slices/userSlice";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isLoggedIn, user } = useSelector((state) => state.user);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   const navLinks = [
@@ -21,6 +39,11 @@ const Navbar = () => {
     { to: "/contact", label: "Contact Us" },
     { to: "/faq", label: "FAQ’s" },
   ];
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    navigate("/");
+  };
 
   return (
     <nav
@@ -54,15 +77,59 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Desktop Button */}
+        {/* Desktop Right Section */}
         <div className="hidden md:block">
-          <CustomButton
-            variant={isScrolled ? "primary" : "secondary"}
-            className="rounded-full px-6 py-2 font-semibold"
-            onClick={() => navigate("/registration")}
-          >
-            Login or Signup
-          </CustomButton>
+          {isLoggedIn ? (
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setIsDropdownOpen((prev) => !prev)}
+                className="flex items-center space-x-2 bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition"
+              >
+                <span>{user?.name || "My Account"}</span>
+                <ChevronDown size={18} />
+              </button>
+
+              {isDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-44 bg-white shadow-lg rounded-lg py-2 z-50">
+                  <Link
+                    to="/profile"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    Profile
+                  </Link>
+                  <Link
+                    to="/kyc"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    KYC
+                  </Link>
+                  <Link
+                    to="/bookings"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    Bookings
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100"
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <CustomButton
+              variant={isScrolled ? "primary" : "secondary"}
+              className="rounded-full px-6 py-2 font-semibold"
+              onClick={() => navigate("/registration")}
+            >
+              Login or Signup
+            </CustomButton>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -96,16 +163,51 @@ const Navbar = () => {
             </Link>
           ))}
 
-          <CustomButton
-            variant={isScrolled ? "primary" : "secondary"}
-            className="rounded-full px-6 py-2 font-semibold"
-            onClick={() => {
-              setIsMenuOpen(false);
-              navigate("/registration");
-            }}
-          >
-            Login or Signup
-          </CustomButton>
+          {isLoggedIn ? (
+            <>
+              <Link
+                to="/profile"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-lg hover:text-indigo-500"
+              >
+                Profile
+              </Link>
+              <Link
+                to="/kyc"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-lg hover:text-indigo-500"
+              >
+                KYC
+              </Link>
+              <Link
+                to="/bookings"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-lg hover:text-indigo-500"
+              >
+                Bookings
+              </Link>
+              <button
+                onClick={() => {
+                  handleLogout();
+                  setIsMenuOpen(false);
+                }}
+                className="text-lg text-red-600 hover:text-red-700"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <CustomButton
+              variant={isScrolled ? "primary" : "secondary"}
+              className="rounded-full px-6 py-2 font-semibold"
+              onClick={() => {
+                setIsMenuOpen(false);
+                navigate("/registration");
+              }}
+            >
+              Login or Signup
+            </CustomButton>
+          )}
         </div>
       )}
     </nav>
