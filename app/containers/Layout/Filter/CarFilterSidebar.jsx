@@ -5,7 +5,6 @@ import { toggleArrayValue, resetFilters } from '@/redux/slices/filterSlice';
 const CarFilterSidebar = () => {
   const dispatch = useDispatch();
   const filters = useSelector((state) => state.filters);
-
   const handleToggle = (key, value) => {
     dispatch(toggleArrayValue({ key, value }));
   };
