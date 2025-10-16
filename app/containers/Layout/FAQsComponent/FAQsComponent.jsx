@@ -43,12 +43,12 @@ const FAQsComponent = () => {
   };
 
   return (
-    <section className="py-16 px-6 bg-white">
+    <section className="md:py-16 py-8 px-6 bg-slate-200  font-montserrat">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
         {/* Left Side */}
         <div className="lg:w-1/3">
-          <h2 className="text-4xl font-bold text-indigo-900 mb-4 relative inline-block">
-            FAQ's
+          <h2 className="text-4xl font-bold text-slate-800 text-center md:text-start  mb-4 relative inline-block">
+            FAQ'<span className="text-red-600">s</span>
             {/* <span className="absolute -top-4 right-0 flex flex-col gap-[2px]">
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-900 opacity-70"></span>
               <span className="w-2 h-2 rounded-full bg-indigo-900 opacity-80"></span>
@@ -59,12 +59,12 @@ const FAQsComponent = () => {
             Frequently Asked Questions about ZoomRide.
           </p>
 
-          <CustomButton
+          {/* <CustomButton
             variant="primary"
             className="rounded-full px-6 py-2 font-semibold"
           >
             View All
-          </CustomButton>
+          </CustomButton> */}
         </div>
 
         {/* Right Side - Accordion */}

@@ -2,9 +2,10 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleArrayValue, resetFilters } from '@/redux/slices/filterSlice';
 
-const CarFilterSidebar = () => {
+const CarFilterSidebar = ({ onApply }) => {
   const dispatch = useDispatch();
   const filters = useSelector((state) => state.filters);
+
   const handleToggle = (key, value) => {
     dispatch(toggleArrayValue({ key, value }));
   };
@@ -59,7 +60,9 @@ const CarFilterSidebar = () => {
             <span className="text-sm text-gray-700">{model}</span>
           </label>
         ))}
-        <button className="text-xs text-indigo-600 mt-1 hover:underline">- View Less</button>
+        <button className="text-xs text-indigo-600 mt-1 hover:underline">
+          - View Less
+        </button>
       </div>
 
       {/* Fuel Type */}
@@ -80,7 +83,9 @@ const CarFilterSidebar = () => {
 
       {/* Transmission Type */}
       <div className="mb-4">
-        <h4 className="text-sm font-semibold mb-2 text-gray-700">Transmission Type</h4>
+        <h4 className="text-sm font-semibold mb-2 text-gray-700">
+          Transmission Type
+        </h4>
         {['Automatic', 'Manual'].map((trans) => (
           <label key={trans} className="flex items-center space-x-2 mb-1">
             <input
@@ -96,7 +101,9 @@ const CarFilterSidebar = () => {
 
       {/* Seating Capacity */}
       <div className="mb-4">
-        <h4 className="text-sm font-semibold mb-2 text-gray-700">Seating Capacity</h4>
+        <h4 className="text-sm font-semibold mb-2 text-gray-700">
+          Seating Capacity
+        </h4>
         {[5, 7].map((seat) => (
           <label key={seat} className="flex items-center space-x-2 mb-1">
             <input
@@ -112,7 +119,9 @@ const CarFilterSidebar = () => {
 
       {/* Luggage Capacity */}
       <div className="mb-6">
-        <h4 className="text-sm font-semibold mb-2 text-gray-700">Luggage Capacity</h4>
+        <h4 className="text-sm font-semibold mb-2 text-gray-700">
+          Luggage Capacity
+        </h4>
         {[2, 3, 4].map((luggage) => (
           <label key={luggage} className="flex items-center space-x-2 mb-1">
             <input
@@ -127,7 +136,10 @@ const CarFilterSidebar = () => {
       </div>
 
       {/* Apply Button */}
-      <button className="bg-indigo-600 text-white px-4 py-2 rounded-md w-full font-semibold hover:bg-indigo-700 transition">
+      <button
+        className="bg-indigo-600 text-white px-4 py-2 rounded-md w-full font-semibold hover:bg-indigo-700 transition"
+        onClick={() => onApply && onApply()} // ✅ Close sidebar after apply
+      >
         Apply
       </button>
     </div>

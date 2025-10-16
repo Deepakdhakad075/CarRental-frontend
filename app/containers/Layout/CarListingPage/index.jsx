@@ -6,7 +6,8 @@ import Breadcrumb from '../Breadcrumb';
 import SortBar from '../Filter/SortBar';
 import CarCardsGroup from '../Filter/CarCard/CarCard';
 import { getReq } from '@/utils/apiHandlers';
-
+import { IoFilter } from "react-icons/io5";
+import { Loading } from '@/components';
 const CarListingPage = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [cars, setCars] = useState([]);
@@ -75,36 +76,41 @@ const CarListingPage = () => {
   ]);
 
   return (
-    <div className="p-6 pt-12 font-montserrat">
+    <div className="md:p-6 p-4 pt-12 font-montserrat bg-slate-50">
       {/* ✅ Top Search Section */}
       <FilterLayout />
 
       {/* ✅ Header Area */}
-      <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+      <div className="md:mt-6 mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 md:gap-2">
         <Breadcrumb />
-        <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
+        <div className="flex items-center justify-between">
+        
+          <SortBar />  
+          <div className="mt-2 md:hidden">
+        <button
+          onClick={() => setShowFilter(true)}
+          className="pr-2"
+        >
+         <IoFilter />
+        </button>
+      </div>
+        </div>
+      </div>
+
+      {/* ✅ Mobile Filter Button */}
+      
+
+      {/* ✅ Main Layout */}
+      <div className="mt-2 flex flex-col md:flex-row gap-2 2xl:gap-6">
+        {/* Sidebar (desktop only) */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
           <p className="text-gray-700 font-medium">
             {loading
               ? 'Loading cars...'
               : `${cars.length} Cars available for rental in ${location || 'selected city'}`}
           </p>
-          <SortBar />
+         
         </div>
-      </div>
-
-      {/* ✅ Mobile Filter Button */}
-      <div className="mt-4 md:hidden">
-        <button
-          onClick={() => setShowFilter(true)}
-          className="border px-4 py-2 rounded-lg font-medium w-full"
-        >
-          Filter
-        </button>
-      </div>
-
-      {/* ✅ Main Layout */}
-      <div className="mt-2 flex flex-col md:flex-row gap-2 2xl:gap-6">
-        {/* Sidebar (desktop only) */}
         <div className="hidden md:block md:w-64">
           <CarFilterSidebar />
         </div>
@@ -112,7 +118,7 @@ const CarListingPage = () => {
         {/* Car Cards */}
         <div className="flex-1">
           {loading ? (
-            <div className="text-center text-gray-500 py-8">Fetching cars...</div>
+            <Loading/>
           ) : cars.length > 0 ? (
             <CarCardsGroup cars={cars} />
           ) : (
@@ -124,22 +130,24 @@ const CarListingPage = () => {
       </div>
 
       {/* ✅ Mobile Filter Drawer */}
-      {showFilter && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-end">
-          <div className="bg-white w-4/5 h-full p-4 overflow-y-auto shadow-lg">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-semibold">Filter</h2>
-              <button
-                onClick={() => setShowFilter(false)}
-                className="text-2xl leading-none"
-              >
-                &times;
-              </button>
-            </div>
-            <CarFilterSidebar />
-          </div>
-        </div>
-      )}
+    {/* Mobile Filter Drawer */}
+{showFilter && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-end">
+    <div className="bg-white w-4/5 h-full p-4 overflow-y-auto shadow-lg">
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-lg font-semibold">Filter</h2>
+        <button
+          onClick={() => setShowFilter(false)}
+          className="text-2xl leading-none"
+        >
+          &times;
+        </button>
+      </div>
+      <CarFilterSidebar onApply={() => setShowFilter(false)} />
+    </div>
+  </div>
+)}
+
     </div>
   );
 };

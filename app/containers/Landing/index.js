@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import i18next from 'i18next';
 import { Helmet } from 'react-helmet';
 import HeroCarousel from '../Layout/HeroCarousel/HeroCarousel';
-import BestSellingModels from '../Layout/BestSellingModels/BestSellingModels';
+// import BestSellingModels from '../Layout/BestSellingModels/BestSellingModels';
 import BookingSteps from '../Layout/BookingStep/BookingStep';
 import FeaturesSection from '../Layout/FeaturesSection/FeaturesSection';
 import PromoFeatures from '../Layout/PromoFeature/PromoFeature';
@@ -17,7 +17,7 @@ function Landing() {
         <html lang={i18next.language} dir={i18next.dir(i18next.language)} />
       </Helmet>
       <HeroCarousel />
-      <BestSellingModels />
+      {/* <BestSellingModels /> */}
       <BookingSteps />
       <FeaturesSection />
       <PromoFeatures />

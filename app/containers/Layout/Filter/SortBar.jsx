@@ -6,7 +6,7 @@ const SortBar = () => {
   const priceSort = useSelector((state) => state.filters.priceSort);
 
   return (
-    <div className="flex justify-end items-center gap-2">
+    <div className="flex  items-center gap-2">
       <span className="text-gray-700 text-sm">Sort by:</span>
       <select
         value={priceSort}

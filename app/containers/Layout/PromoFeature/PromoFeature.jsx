@@ -76,10 +76,10 @@ const promoFeatures = [
 
 const PromoFeatures = () => {
   return (
-    <section className="py-16 px-6 bg-white">
+    <section className="md:py-16 py-8 px-6 bg-slate-200 font-montserrat">
       {/* Heading */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-extrabold text-slate-900 leading-tight inline-block">
+        <h2 className="text-xl  md:text-3xl font-extrabold text-slate-900 leading-tight inline-block">
           Why ride with{' '}
           <span className="relative inline-block text-red-600">ZOOM RIDE?</span>
         </h2>
@@ -94,7 +94,7 @@ const PromoFeatures = () => {
         {promoFeatures.map(({ id, icon, title, description }) => (
           <div
             key={id}
-            className="group w-full h-[320px] p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer bg-white hover:bg-gray-50"
+            className="group w-full h-[250px] md:h-[320px] p-4 md:p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer bg-white hover:bg-gray-50"
           >
             <div className="mb-6 flex items-center justify-center">
               <div className="p-4 rounded-full bg-gray-100 shadow-sm transition-all duration-300">

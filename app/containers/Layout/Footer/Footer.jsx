@@ -1,30 +1,38 @@
 import React from 'react';
-import { Facebook, Instagram, Twitter, Mail, PhoneCall } from 'lucide-react';
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  Mail,
+  PhoneCall,
+  MapPin,
+  Clock,
+} from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="text-white font-semibold bg-slate-900">
-      <div className="max-w-7xl mx-auto px-8 py-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
-        {/* Column 1: Brand Info */}
+    <footer className="text-white bg-slate-900 font-montserrat">
+      <div className="max-w-7xl mx-auto px-6 py-6 md:py-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+        {/* Column 1: Logo & Socials */}
         <div>
           <img
             src="/images/logo.png"
             alt="ZoomRide Logo"
             className="w-28 mb-3 filter invert brightness-0"
           />
-          <p className="text-sm font-bold mb-3 tracking-wide uppercase">
+          <p className="text-sm font-bold mb-3 uppercase tracking-wide">
             Self Drive Cars
           </p>
-          <p className="mb-6 font-medium text-base leading-relaxed text-gray-200">
-            ZoomRide self drive cars is a self drive brand owned by ORIX,
-            Japan's second largest self drive car rental company.
+          <p className="mb-6 text-gray-300 text-base leading-relaxed">
+            ZoomRide is a self-drive brand offering 24x7 active services with premium vehicles at your fingertips.
           </p>
           <div className="flex space-x-5">
             {[Facebook, Instagram, Twitter].map((Icon, i) => (
               <a
                 key={i}
                 href="#"
-                className="text-white hover:text-red-600 transform hover:translate-x-1 transition-all duration-300"
+                aria-label={`Visit our ${Icon.name} page`}
+                className="hover:text-red-500 transition-all duration-300"
               >
                 <Icon className="w-6 h-6" />
               </a>
@@ -32,34 +40,62 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Column 2: About */}
+        {/* Column 2: Get in Touch */}
         <div>
-          <h4 className="font-extrabold mb-5 text-xl text-white">About</h4>
-          <ul className="space-y-3">
-            {['Deals', 'Contact', 'FAQs', 'Terms & Conditions', 'Privacy Policy'].map(
-              (item, i) => (
-                <li key={i}>
-                  <a
-                    href="#"
-                    className="text-white hover:text-red-600 hover:translate-x-1 transition-all duration-300 text-base font-semibold inline-block"
-                  >
-                    {item}
-                  </a>
-                </li>
-              )
-            )}
-          </ul>
+          <h4 className="text-xl font-extrabold mb-4">Get In Touch</h4>
+          <address className="not-italic space-y-4 text-gray-300 text-base font-medium">
+            <div className="flex items-start gap-2">
+              <PhoneCall className="w-5 h-5 mt-1" />
+              <div>
+                +91 9522100017
+                <br />
+                +91 9522300017
+              </div>
+            </div>
+
+            <div className="flex items-start gap-2">
+              <MapPin className="w-5 h-5 mt-1" />
+              <div>
+                13, Sagar Highstreet
+                <br />
+                Near DMART, Ayodhya Bypass
+                <br />
+                Bhopal - 462041
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Mail className="w-5 h-5" />
+              <a
+                href="mailto:info@zoomride.in"
+                className="hover:text-red-500 transition"
+              >
+                info@zoomride.in
+              </a>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Clock className="w-5 h-5" />
+              <span>All Days Open - 24×7 Active Service</span>
+            </div>
+          </address>
         </div>
 
-        {/* Column 3: Helpful Links */}
+        {/* Column 3: Links */}
         <div>
-          <h4 className="font-extrabold mb-5 text-xl text-white">Helpful Links</h4>
-          <ul className="space-y-3">
-            {['About', 'Blogs', 'Sitemap', 'Agent Login'].map((item, i) => (
+          <h4 className="text-xl font-extrabold mb-4">Quick Links</h4>
+          <ul className="space-y-3 text-base font-medium">
+            {[
+              'About Us',
+              'Privacy Policy',
+              'Terms & Condition',
+              'Refund And Cancellation Policy',
+              'Marketplace Policy',
+            ].map((item, i) => (
               <li key={i}>
                 <a
                   href="#"
-                  className="text-white hover:text-red-600 hover:translate-x-1 transition-all duration-300 text-base font-semibold inline-block"
+                  className="hover:text-red-500 transition duration-300"
                 >
                   {item}
                 </a>
@@ -68,40 +104,23 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Column 4: Reach Us */}
-        <div>
-          <h4 className="font-extrabold mb-5 text-xl text-white">Reach Us</h4>
-          <address className="not-italic space-y-4 font-semibold text-base text-gray-200">
-            <p className="leading-relaxed">
-              13,Sagar highstreet
-              <br />
-              Near DMART Ayodhya bypass
-              <br />
-              Bhopal 462041
-            </p>
-            <a
-              href="mailto:selfdrive@orixindia.com"
-              className="flex items-center space-x-2 text-white hover:text-red-600 hover:translate-x-1 transition-all duration-300"
-            >
-              <Mail className="w-5 h-5" />
-              <span>info@zoomride.in</span>
-            </a>
-            <a
-              href="tel:+919513631234"
-              className="flex items-center space-x-2 text-white hover:text-red-600 hover:translate-x-1 transition-all duration-300"
-            >
-              <PhoneCall className="w-5 h-5" />
-              <span>095221-00017 , 9522300017</span>
-            </a>
-          </address>
-        </div>
+        {/* Column 4: Offers */}
+        {/* <div>
+          <h4 className="text-xl font-extrabold mb-4">Today’s Offer</h4>
+          <p className="text-base text-gray-300">
+            Get exclusive discounts and cashback on your first booking.
+            <br />
+            Call now and avail the best deals on premium self-drive cars!
+          </p>
+        </div> */}
       </div>
 
-      {/* Divider */}
-      <div className="border-t border-gray-400 mt-8"></div>
-      <p className="text-center py-4 text-sm text-gray-200 tracking-wide">
-        © {new Date().getFullYear()} ZoomRide. All Rights Reserved.
-      </p>
+      {/* Bottom Bar */}
+      <div className="border-t border-gray-700 mt-8">
+        <p className="text-center py-4 text-sm text-gray-400">
+          © {new Date().getFullYear()} ZoomRide. All rights reserved.
+        </p>
+      </div>
     </footer>
   );
 };

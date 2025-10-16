@@ -32,7 +32,7 @@ const RentalSearchBar = () => {
   };
 
   return (
-    <div className="flex  font-montserrat md:flex-row items-center justify-evenly gap-1 md:gap-4 w-full mt-10 p-2 md:px-6 bg-purple-50 rounded-lg shadow-md">
+    <div className="flex  font-montserrat md:flex-row items-center justify-evenly gap-1 md:gap-4 w-full mt-4 md:mt-10 p-2 md:px-6 bg-purple-50 rounded-lg shadow-md">
       
       {/* Location */}
     <div className="flex flex-col w-[50%] md:w-1/6 gap-0 cursor-pointer">

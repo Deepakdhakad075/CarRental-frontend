@@ -51,7 +51,7 @@ const Navbar = () => {
         isScrolled || isMenuOpen ? "bg-white text-black shadow-md" : " text-white"
       }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6" style={{ height: "74px" }}>
+      <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-4 md:px-6" style={{ height: "74px" }}>
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
           <img src="/images/logo.png" alt="Logo" className="h-20 cursor-pointer" />
@@ -135,9 +135,9 @@ const Navbar = () => {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? (
-            <X size={26} className={`${isScrolled ? "text-black" : "text-white"}`} />
+            <X size={26} className={`${isScrolled ? "text-black" : "text-black"}`} />
           ) : (
-            <Menu size={26} className={`${isScrolled ? "text-black" : "text-white"}`} />
+            <Menu size={26} className={`${isScrolled ? "text-black" : "text-black"}`} />
           )}
         </button>
       </div>
@@ -145,15 +145,15 @@ const Navbar = () => {
       {/* Mobile Dropdown Menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-          isMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+          isMenuOpen ? "h-[100vh] opacity-100" : "max-h-0 opacity-0"
         } ${isScrolled || isMenuOpen ? "bg-white text-black shadow-md" : "bg-blue-900 text-white"}`}
       >
-        <div className="flex flex-col items-center space-y-6 py-6">
+        <div className="flex flex-col items-center space-y-6 py-6  rounded-b-full">
           {navLinks.map((link, index) => (
             <Link
               key={index}
               to={link.to}
-              className="text-lg font-medium text-white hover:text-red-600 relative group transition-colors"
+              className="text-lg font-medium text-black hover:text-red-600 relative group transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               {link.label}
@@ -166,7 +166,7 @@ const Navbar = () => {
               <Link
                 to="/profile"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-lg text-white hover:text-red-600 relative group transition-colors"
+                className="text-lg text-black hover:text-red-600 relative group transition-colors"
               >
                 Profile
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 transition-all duration-300 group-hover:w-full"></span>
@@ -174,7 +174,7 @@ const Navbar = () => {
               <Link
                 to="/kyc"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-lg text-white hover:text-red-600 relative group transition-colors"
+                className="text-lg text-black hover:text-red-600 relative group transition-colors"
               >
                 KYC
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 transition-all duration-300 group-hover:w-full"></span>
@@ -182,7 +182,7 @@ const Navbar = () => {
               <Link
                 to="/bookings"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-lg text-white hover:text-red-600 relative group transition-colors"
+                className="text-lg text-black hover:text-red-600 relative group transition-colors"
               >
                 Bookings
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 transition-all duration-300 group-hover:w-full"></span>

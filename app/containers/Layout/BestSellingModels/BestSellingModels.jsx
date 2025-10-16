@@ -158,7 +158,7 @@ const BestSellingModels = () => (
   <Container
     variant="gray"
     header={
-      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 text-center my-6 sm:my-8">
+      <h1 className="text-2xl font-montserrat sm:text-3xl lg:text-4xl font-bold text-gray-800 text-center  md:my-8 !my-0 py-4">
         Best Selling Models
       </h1>
     }
@@ -182,9 +182,9 @@ const BestSellingModels = () => (
               </div>
 
               {/* Card Content Section */}
-              <div className="p-4 sm:p-5">
-                <div className="flex items-center justify-between mb-3 flex-wrap">
-                  <div className="flex items-center space-x-2">
+              <div className="p-2 md:p-5">
+                <div className="flex items-center justify-between mb-2 md:mb-3 flex-wrap">
+                  <div className="flex items-center space-x-1 md:space-x-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-500"
@@ -193,9 +193,9 @@ const BestSellingModels = () => (
                     >
                       <path d="M3 13v-2l1-3c.2-.6.8-1 1.5-1h13c.7 0 1.3.4 1.5 1l1 3v2c0 .6-.4 1-1 1h-.5l.5 2v1c0 .6-.4 1-1 1h-1c-.6 0-1-.4-1-1v-1H7v1c0 .6-.4 1-1 1H5c-.6 0-1-.4-1-1v-1l.5-2H4c-.6 0-1-.4-1-1zm3.5-5l-.7 2h12.4l-.7-2H6.5z" />
                     </svg>
-                    <span className="text-base sm:text-lg font-medium text-gray-700">{brand}</span>
+                    <span className="text-sm md:text-lg font-medium text-gray-700">{brand}</span>
                   </div>
-                  <span className="text-lg sm:text-xl font-extrabold text-indigo-900">{model}</span>
+                  <span className="text-base  md:text-xl font-extrabold text-indigo-900">{model}</span>
                 </div>
 
                 <div className="text-right">

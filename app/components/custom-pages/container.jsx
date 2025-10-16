@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 const Container = ({ children, header, variant = 'gray', className = '' }) => {
   // Define background color classes based on variant
-  const headerBg = variant === 'white' ? 'bg-white' : 'bg-gray-100';
-  const bodyBg = variant === 'white' ? 'bg-white' : 'bg-gray-100';
+  const headerBg = variant === 'white' ? 'bg-slate-200' : 'bg-slate-200 ';
+  const bodyBg = variant === 'white' ? 'bg-slate-200' : 'bg-slate-200 ';
 
   return (
     <div className={`max-w-8xl h-auto mx-auto overflow-hidden shadow ${className}`}>
-      <div className={`${headerBg} px-12 py-12 text-center`}>
+      <div className={`${headerBg} md:px-12 md:py-12 py-4 text-center`}>
         {header}
       </div>
-      <div className={`${bodyBg} px-8 py-8`}>
+      <div className={`${bodyBg} md:px-8 px-4 md:py-8 py-4`}>
         {children}
       </div>
     </div>

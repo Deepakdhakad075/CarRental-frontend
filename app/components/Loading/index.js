@@ -68,9 +68,7 @@ const Loading = ({ message }) => {
           {message}
         </p>
 
-        <p className="text-white/80 text-sm">
-          Please wait while we prepare your ride…
-        </p>
+        <p className="text-white/80 text-sm">Please wait .....</p>
       </div>
 
       <style>{`

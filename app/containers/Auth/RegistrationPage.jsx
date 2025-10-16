@@ -70,7 +70,7 @@ export default function RegistrationPage() {
 
         // ✅ Save user data in Redux and persist
         dispatch(setUser({ user, token }));
-        navigate('/')
+        navigate('/');
       } else {
         const msg = res?.error?.message || 'Registration failed';
         toast.error(msg);
@@ -85,23 +85,23 @@ export default function RegistrationPage() {
   return (
     <>
       {loading && <Loading />}
-      <div className="min-h-screen bg-gradient-to-br from-[#0f1c4d] via-[#3f2a85] to-[#7e3ff2] flex items-start justify-end px-8 py-10">
-        <div className="bg-white rounded-xl mt-8 mr-8 shadow-2xl p-10 w-full max-w-2xl">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4 text-center">
+      <div className="min-h-screen font-montserrat  bg-gradient-to-br from-[#0f1c4d] via-[#3f2a85] to-[#7e3ff2] flex md:items-start items-center justify-center md:justify-end px-2 md:px-8 py-2 md:py-10">
+        <div className="bg-white rounded-xl md:mt-8 md:mr-8 shadow-2xl p-4 md:p-10 w-full max-w-2xl">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-1 md:mb-4 text-center">
             Sign Up
           </h1>
-          <p className="text-base text-center text-gray-600 mb-6">
+          <p className="text-base text-center text-gray-600 mb-1 md:mb-6">
             Already have an account?{' '}
             <a
               href="/login"
-              className="text-purple-600 font-semibold hover:underline"
+              className="text-blue-600 font-semibold hover:underline"
             >
               Login here!
             </a>
           </p>
 
           <form
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6"
             onSubmit={handleSubmit}
             noValidate
           >
@@ -232,11 +232,43 @@ export default function RegistrationPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className={`w-full bg-purple-600 text-white py-2 rounded-md border border-purple-700 hover:bg-purple-700 transition ${
-                  loading ? 'opacity-70 cursor-not-allowed' : ''
-                }`}
+                className={`relative inline-flex justify-center items-center w-full py-2 rounded-md text-white font-semibold 
+      bg-gradient-to-r from-blue-600 via-purple-600 to-red-500 
+      bg-[length:200%_200%] bg-[position:0%_0%]
+      transition-all duration-300 ease-in-out
+      hover:bg-[position:100%_100%] hover:shadow-2xl hover:scale-[1.02]
+      focus:outline-none focus:ring-4 focus:ring-purple-300 
+      disabled:opacity-50 disabled:cursor-not-allowed
+      ${loading ? 'cursor-wait' : ''}
+    `}
               >
-                {loading ? 'Registering...' : 'Sign Up'}
+                {loading ? (
+                  <>
+                    <svg
+                      className="animate-spin mr-2 h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8h4z"
+                      />
+                    </svg>
+                    Registering...
+                  </>
+                ) : (
+                  'Sign Up'
+                )}
               </button>
             </div>
           </form>

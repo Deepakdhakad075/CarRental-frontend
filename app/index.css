@@ -25,7 +25,7 @@
     @apply overflow-x-hidden text-base;
   }
   body {
-    @apply font-josefin text-white bg-primary-100;
+    @apply font-josefin text-white bg-slate-200;
   }
   p {
     @apply leading-6;
@@ -89,6 +89,7 @@
 
 @layer utilities {
 }
+
 
 .react {
   position: absolute;

@@ -71,8 +71,8 @@ export default function LoginPage() {
   return (
     <>
       {loading && <Loading />}
-      <div className="min-h-screen bg-gradient-to-br from-[#0f1c4d] via-[#3f2a85] to-[#7e3ff2] flex items-start justify-end px-8 py-10">
-        <div className="bg-white rounded-xl mt-8 mr-8 shadow-2xl p-10 w-full max-w-md">
+      <div className="min-h-screen font-montserrat bg-gradient-to-br from-[#0f1c4d] via-[#3f2a85] to-[#7e3ff2] flex md:items-start pt-[12vh] md:pt-0 md:justify-end px-2 md:px-8 py-2  md:py-10">
+        <div className="bg-white h-[53vh] md:h-auto rounded-xl md:mt-8 md:mr-8 shadow-2xl p-4 md:p-10 w-full max-w-md">
           <h1 className="text-2xl font-bold text-gray-800 mb-4 text-center">
             Sign in
           </h1>
@@ -80,7 +80,7 @@ export default function LoginPage() {
             Don’t have an account?{' '}
             <a
               href="/registration"
-              className="text-purple-600 font-semibold hover:underline"
+              className="text-blue-600 font-semibold hover:underline"
             >
               Register here!
             </a>
@@ -130,15 +130,51 @@ export default function LoginPage() {
             </div>
 
             {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={loading}
-              className={`w-full bg-purple-600 text-white py-2 rounded-md border border-purple-700 hover:bg-purple-700 transition ${
-                loading ? 'opacity-70 cursor-not-allowed' : ''
-              }`}
-            >
-              {loading ? 'Logging in...' : 'Login'}
-            </button>
+       <div className="md:col-span-2">
+  <button
+    type="submit"
+    disabled={loading}
+    className={`relative inline-flex justify-center items-center w-full py-2 rounded-md text-white font-semibold 
+      bg-gradient-to-r from-blue-600 via-purple-600 to-red-500 
+      bg-[length:200%_200%] bg-[position:0%_0%]
+      transition-all duration-300 ease-in-out
+      hover:bg-[position:100%_100%] hover:shadow-2xl hover:scale-[1.02]
+      focus:outline-none focus:ring-4 focus:ring-purple-300 
+      disabled:opacity-50 disabled:cursor-not-allowed
+      ${loading ? 'cursor-wait' : ''}
+    `}
+  >
+    {loading ? (
+      <>
+        <svg
+          className="animate-spin mr-2 h-5 w-5 text-white"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          />
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8h4z"
+          />
+        </svg>
+        Logging in...
+      </>
+    ) : (
+      'Login'
+    )}
+  </button>
+</div>
+
+
           </form>
         </div>
       </div>
