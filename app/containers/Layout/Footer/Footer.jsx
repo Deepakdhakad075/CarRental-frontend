@@ -12,14 +12,14 @@ const Footer = () => {
         <div>
           <img
             src="/images/logo.png"
-            alt="MyChoize Logo"
+            alt="ZoomRide Logo"
             className="w-28 mb-3 filter invert brightness-0"
           />
           <p className="text-sm font-bold mb-3 tracking-wide uppercase">
             Self Drive Cars
           </p>
           <p className="mb-6 font-medium text-base leading-relaxed text-gray-200">
-            MyChoize self drive cars is a self drive brand owned by ORIX,
+            ZoomRide self drive cars is a self drive brand owned by ORIX,
             Japan's second largest self drive car rental company.
           </p>
           <div className="flex space-x-5">
@@ -103,7 +103,7 @@ const Footer = () => {
       {/* Divider */}
       <div className="border-t border-gray-400 mt-8"></div>
       <p className="text-center py-4 text-sm text-gray-200 tracking-wide">
-        © {new Date().getFullYear()} MyChoize. All Rights Reserved.
+        © {new Date().getFullYear()} ZoomRide. All Rights Reserved.
       </p>
     </footer>
   );

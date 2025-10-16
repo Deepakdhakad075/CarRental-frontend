@@ -10,7 +10,7 @@ const BookingSteps = () => (
           How To Book a Self-Drive Car Online
         </h1>
         <p className="text-center text-gray-500 mb-4">
-          Book a car online in Udaipur from MyChoize in 4 Simple steps.
+          Book a car online in Udaipur from ZoomRide in 4 Simple steps.
         </p>
 
         <div className="w-full">

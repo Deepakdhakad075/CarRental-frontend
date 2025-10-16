@@ -8,16 +8,14 @@
   "scripts": {
     "prepare": "husky install",
     "dev": "webpack serve --hot --config webpack/webpack.dev.js",
-    "start:production": "webpack serve --hot --config webpack/webpack.prod.js",
+    "start": "webpack serve --hot --config webpack/webpack.prod.js",
     "test": "jest",
     "format": "prettier --write \"**/*.{js,json}\"",
     "lint": "eslint \"**/*.js\" --fix",
     "lint-staged": "lint-staged",
     "commitlint": "commitlint",
     "build:clean": "rimraf ./build",
-    "build:mount": "npm run build:clean && mv tempDist build",
-    "build": "webpack --color --progress --config webpack/webpack.prod.js",
-    "postbuild": "npm run build:mount"
+    "build": "npm run build:clean && webpack --color --progress --config webpack/webpack.prod.js"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
@@ -60,7 +58,7 @@
     "css-loader": "^6.8.1",
     "dotenv": "^16.3.1",
     "dotenv-webpack": "^8.0.1",
-    "eslint": "^8.43.0",
+    "eslint": "^8.57.1",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",

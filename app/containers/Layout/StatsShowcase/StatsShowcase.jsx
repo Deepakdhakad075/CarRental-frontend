@@ -90,7 +90,7 @@ const StatsShowcase = () => {
           </div>
           <p className="text-4xl font-extrabold text-indigo-900 leading-snug">
             8 Out of 10 customers love{' '}
-            <span className="text-indigo-700">MyChoize</span>
+            <span className="text-indigo-700">ZoomRide</span>
           </p>
         </div>
       </div>

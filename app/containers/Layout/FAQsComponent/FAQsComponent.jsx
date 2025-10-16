@@ -4,32 +4,32 @@ import CustomButton from '@/components/custom-button/Button';
 
 const faqs = [
   {
-    question: 'What Is MyChoize Car Rental Service?',
+    question: 'What Is ZoomRide Car Rental Service?',
     answer:
-      'MyChoize offers self-drive car rentals that give you freedom and flexibility to travel at your own pace.',
+      'ZoomRide offers self-drive car rentals that give you freedom and flexibility to travel at your own pace.',
   },
   {
-    question: 'Is MyChoize Available In My City?',
+    question: 'Is ZoomRide Available In My City?',
     answer:
-      'Yes! MyChoize is available in multiple cities across India. Check our website for the full list.',
+      'Yes! ZoomRide is available in multiple cities across India. Check our website for the full list.',
   },
   {
-    question: 'What Type Of Vehicle/Cars Does MyChoize Offer?',
+    question: 'What Type Of Vehicle/Cars Does ZoomRide Offer?',
     answer:
       'From hatchbacks to SUVs and luxury cars — we’ve got a wide range to suit every need.',
   },
   {
-    question: 'How Much Does It Cost To Rent A Car At MyChoize?',
+    question: 'How Much Does It Cost To Rent A Car At ZoomRide?',
     answer:
       'Pricing depends on the car model, duration, and location. Visit our pricing page for details.',
   },
   {
-    question: 'What Are The Advantages Of Availing Cars On Rent At MyChoize?',
+    question: 'What Are The Advantages Of Availing Cars On Rent At ZoomRide?',
     answer:
       'No ownership hassle, flexible plans, 24/7 support, and complete freedom to drive your way.',
   },
   {
-    question: 'What Are The Advantages Of Subscribing To MyChoize Cars?',
+    question: 'What Are The Advantages Of Subscribing To ZoomRide Cars?',
     answer:
       'Lower monthly costs, car swaps, and inclusive maintenance & insurance — all in one subscription.',
   },
@@ -56,7 +56,7 @@ const FAQsComponent = () => {
             </span> */}
           </h2>
           <p className="text-gray-600 mb-6">
-            Frequently Asked Questions about MyChoize.
+            Frequently Asked Questions about ZoomRide.
           </p>
 
           <CustomButton

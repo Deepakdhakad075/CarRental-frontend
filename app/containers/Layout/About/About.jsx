@@ -23,7 +23,7 @@ function About() {
 
           <div className="px-4 text-gray-700 text-base leading-relaxed space-y-6 text-left">
             <p>
-              <strong>MyChoize Self Drive Cars</strong> is a self-drive car
+              <strong>ZoomRide Self Drive Cars</strong> is a self-drive car
               rental service powered by <strong>ORIX</strong>, Japan’s
               second-largest car rental company. With a fleet of over{' '}
               <strong>63,000 vehicles</strong>, we bring Japanese innovation,
@@ -37,7 +37,7 @@ function About() {
               repellat et est ab, nihil cumque mollitia?
             </p>
             <p>
-              <strong>MyChoize Self Drive Cars</strong> is a self-drive car
+              <strong>ZoomRide Self Drive Cars</strong> is a self-drive car
               rental service powered by <strong>ORIX</strong>, Japan’s
               second-largest car rental company. With a fleet of over{' '}
               <strong>63,000 vehicles</strong>, we bring Japanese innovation,
@@ -52,7 +52,7 @@ function About() {
             </p>
             <p>
               Whether you're planning a vacation, a weekend getaway, or simply
-              need a car for your daily commute, MyChoize offers the freedom to
+              need a car for your daily commute, ZoomRide offers the freedom to
               drive on your own terms. Our fleet includes hatchbacks, sedans,
               SUVs, and MUVs — all available for{' '}
               <strong>daily, weekly, or monthly rentals</strong>.

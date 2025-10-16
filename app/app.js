@@ -13,10 +13,10 @@ import Fleets from './containers/Layout/Fleets/Fleets';
 import About from './containers/Layout/About/About';
 import store from './redux/store';
 import CarListingPage from './containers/Layout/CarListingPage';
-import 'react-toastify/dist/ReactToastify.css';
-import Profile from './containers/Profile/Profile';
 import Faq from './containers/Layout/FAQ/Faq';
+import Profile from './containers/Profile/Profile';
 import Everification from './containers/Layout/Everification/E-verification';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AppContent() {
   const location = useLocation();
