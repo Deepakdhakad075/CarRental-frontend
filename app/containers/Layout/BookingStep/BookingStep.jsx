@@ -6,7 +6,7 @@ const BookingSteps = () => (
     variant="white"
     header={
       <>
-        <h1 className="text-4xl font-bold text-center text-indigo-900 mb-2">
+        <h1 className="text-4xl font-bold text-center text-slate-800 mb-2">
           How To Book a Self-Drive Car Online
         </h1>
         <p className="text-center text-gray-500 mb-4">

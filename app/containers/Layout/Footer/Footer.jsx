@@ -3,10 +3,7 @@ import { Facebook, Instagram, Twitter, Mail, PhoneCall } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer
-      className="text-white font-semibold"
-      style={{ backgroundColor: 'rgba(49, 46, 129, 0.6)' }}
-    >
+    <footer className="text-white font-semibold bg-slate-900">
       <div className="max-w-7xl mx-auto px-8 py-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
         {/* Column 1: Brand Info */}
         <div>
@@ -27,7 +24,7 @@ const Footer = () => {
               <a
                 key={i}
                 href="#"
-                className="hover:text-indigo-900 transform hover:translate-x-1 transition-all duration-300"
+                className="text-white hover:text-red-600 transform hover:translate-x-1 transition-all duration-300"
               >
                 <Icon className="w-6 h-6" />
               </a>
@@ -44,7 +41,7 @@ const Footer = () => {
                 <li key={i}>
                   <a
                     href="#"
-                    className="hover:text-indigo-900 hover:translate-x-1 transition-all duration-300 text-base font-semibold inline-block"
+                    className="text-white hover:text-red-600 hover:translate-x-1 transition-all duration-300 text-base font-semibold inline-block"
                   >
                     {item}
                   </a>
@@ -62,7 +59,7 @@ const Footer = () => {
               <li key={i}>
                 <a
                   href="#"
-                  className="hover:text-indigo-900 hover:translate-x-1 transition-all duration-300 text-base font-semibold inline-block"
+                  className="text-white hover:text-red-600 hover:translate-x-1 transition-all duration-300 text-base font-semibold inline-block"
                 >
                   {item}
                 </a>
@@ -76,25 +73,25 @@ const Footer = () => {
           <h4 className="font-extrabold mb-5 text-xl text-white">Reach Us</h4>
           <address className="not-italic space-y-4 font-semibold text-base text-gray-200">
             <p className="leading-relaxed">
-              ORIX Corporation India Limited
+              13,Sagar highstreet
               <br />
-              Plot No - 94, Marol Co-operative Industrial Estate,
+              Near DMART Ayodhya bypass
               <br />
-              Andheri-Kurla Road, Andheri (E), Mumbai - 400059
+              Bhopal 462041
             </p>
             <a
               href="mailto:selfdrive@orixindia.com"
-              className="flex items-center space-x-2 hover:text-indigo-900 hover:translate-x-1 transition-all duration-300"
+              className="flex items-center space-x-2 text-white hover:text-red-600 hover:translate-x-1 transition-all duration-300"
             >
               <Mail className="w-5 h-5" />
-              <span>selfdrive@orixindia.com</span>
+              <span>info@zoomride.in</span>
             </a>
             <a
               href="tel:+919513631234"
-              className="flex items-center space-x-2 hover:text-indigo-900 hover:translate-x-1 transition-all duration-300"
+              className="flex items-center space-x-2 text-white hover:text-red-600 hover:translate-x-1 transition-all duration-300"
             >
               <PhoneCall className="w-5 h-5" />
-              <span>+91 95 1363 1234</span>
+              <span>095221-00017 , 9522300017</span>
             </a>
           </address>
         </div>

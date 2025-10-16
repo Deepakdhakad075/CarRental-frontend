@@ -79,20 +79,12 @@ const PromoFeatures = () => {
     <section className="py-16 px-6 bg-white">
       {/* Heading */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-extrabold text-indigo-900 leading-tight inline-block">
+        <h2 className="text-3xl font-extrabold text-slate-900 leading-tight inline-block">
           Why ride with{' '}
-          <span className="relative inline-block text-indigo-900">
-            ZOOM RIDE?
-            {/* Dots container inside the word */}
-            {/* <span className="absolute -top-4 right-0 flex flex-col items-center gap-[2px]">
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-900 opacity-70"></span>
-              <span className="w-2 h-2 rounded-full bg-indigo-900 opacity-80"></span>
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-900 opacity-90"></span>
-            </span> */}
-          </span>
+          <span className="relative inline-block text-red-600">ZOOM RIDE?</span>
         </h2>
 
-        <p className="mt-4 text-sm text-gray-600 max-w-xl mx-auto">
+        <p className="mt-4 text-sm text-slate-700 max-w-xl mx-auto">
           Enjoy flexibility, affordability, and convenience with our self-drive
           car rentals.
         </p>
@@ -109,16 +101,14 @@ const PromoFeatures = () => {
                 {icon}
               </div>
             </div>
-            <h3 className="text-xl font-semibold text-gray-800 text-center mb-3 group-hover:text-indigo-700 transition-colors duration-300">
+            <h3 className="text-xl font-semibold text-gray-800 text-center mb-3 group-hover:text-red-600 transition-colors duration-300">
               {title}
             </h3>
-            <p className="text-center text-gray-600 group-hover:text-gray-800 transition-colors duration-300 text-sm leading-relaxed">
+            <p className="text-center text-gray-600 group-hover:text-red-600 transition-colors duration-300 text-sm leading-relaxed">
               {description}
             </p>
           </div>
         ))}
-
-       
       </div>
     </section>
   );

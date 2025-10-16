@@ -444,26 +444,77 @@ function CarCard({ car, wide }) {
   );
 }
 
+// export default function CarCardsGroup({ cars }) {
+//   const [wide, setWide] = useState(false);
+//   console.log(cars, 'cars data inside carlisting');
+//   return (
+//     <div className="w-full flex flex-col items-center">
+//       {/* Toggle View Controls */}
+//       <div className="flex items-end justify-end w-full max-w-6xl px-4 mb-4">
+//         <div className="flex items-center space-x-2">
+//           <button
+//             onClick={() => setWide(false)}
+//             className={`p-2 rounded-md border ${
+//               !wide ? 'bg-indigo-700 text-white' : 'bg-white text-gray-700'
+//             }`}
+//           >
+//             <FaThLarge />
+//           </button>
+//           <button
+//             onClick={() => setWide(true)}
+//             className={`p-2 rounded-md border ${
+//               wide ? 'bg-indigo-700 text-white' : 'bg-white text-gray-700'
+//             }`}
+//           >
+//             <FaListUl />
+//           </button>
+//         </div>
+//       </div>
+
+//       {/* Grid or List View */}
+//       <div
+//         className={`${
+//           wide
+//             ? 'flex flex-col w-full items-center'
+//             : 'grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl'
+//         }`}
+//       >
+//         {cars.map((car, idx) => (
+//           <CarCard car={car} wide={wide} key={car.name + idx} />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+
+
 export default function CarCardsGroup({ cars }) {
   const [wide, setWide] = useState(false);
-  console.log(cars, 'cars data inside carlisting');
+
+  console.log(cars, "cars data inside carlisting");
+
   return (
     <div className="w-full flex flex-col items-center">
       {/* Toggle View Controls */}
-      <div className="flex items-end justify-end w-full max-w-6xl px-4 mb-4">
+      <div className="hidden md:flex items-end justify-end w-full max-w-6xl px-4 mb-4">
         <div className="flex items-center space-x-2">
           <button
             onClick={() => setWide(false)}
-            className={`p-2 rounded-md border ${
-              !wide ? 'bg-indigo-700 text-white' : 'bg-white text-gray-700'
+            className={`p-2 rounded-md border transition-colors duration-300 ${
+              !wide
+                ? "bg-indigo-700 text-white border-indigo-700"
+                : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
             }`}
           >
             <FaThLarge />
           </button>
           <button
             onClick={() => setWide(true)}
-            className={`p-2 rounded-md border ${
-              wide ? 'bg-indigo-700 text-white' : 'bg-white text-gray-700'
+            className={`p-2 rounded-md border transition-colors duration-300 ${
+              wide
+                ? "bg-indigo-700 text-white border-indigo-700"
+                : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
             }`}
           >
             <FaListUl />
@@ -475,8 +526,8 @@ export default function CarCardsGroup({ cars }) {
       <div
         className={`${
           wide
-            ? 'flex flex-col w-full items-center'
-            : 'grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl'
+            ? "flex flex-col w-full items-center"
+            : "grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl"
         }`}
       >
         {cars.map((car, idx) => (

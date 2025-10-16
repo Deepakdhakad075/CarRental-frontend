@@ -1,58 +1,280 @@
 
-// import React, { useState } from 'react';
-// import { Carousel } from 'react-responsive-carousel';
-// import CustomDatePicker from '@/components/custom-datepicker/DatePicker';
-// import CustomButton from '@/components/custom-button/Button';
-// import 'react-responsive-carousel/lib/styles/carousel.min.css';
-// import { useNavigate } from 'react-router-dom';
-// import { useRentalTab } from '@/contexts/RentalTabProvider';
-// import { useDispatch, useSelector } from 'react-redux';
-// import {
-//   setLocation,
-//   setPickUpDate,
-//   setReturnDate,
-// } from '@/redux/slices/filterSlice';
-// import { getReq } from '@/utils/apiHandlers';
+// // import React, { useState } from 'react';
+// // import { Carousel } from 'react-responsive-carousel';
+// // import CustomDatePicker from '@/components/custom-datepicker/DatePicker';
+// // import CustomButton from '@/components/custom-button/Button';
+// // import 'react-responsive-carousel/lib/styles/carousel.min.css';
+// // import { useNavigate } from 'react-router-dom';
+// // import { useRentalTab } from '@/contexts/RentalTabProvider';
+// // import { useDispatch, useSelector } from 'react-redux';
+// // import {
+// //   setLocation,
+// //   setPickUpDate,
+// //   setReturnDate,
+// // } from '@/redux/slices/filterSlice';
+// // import { getReq } from '@/utils/apiHandlers';
+
+// // const HeroCarousel = () => {
+// //   const [activeTab, setActiveTab] = useState('daily');
+// //   const navigate = useNavigate();
+// //   const dispatch = useDispatch();
+
+// //   // Redux state
+// //   const { location, pickUpDate, returnDate } = useSelector(
+// //     (state) => state.filters
+// //   );
+// //   console.log(location,pickUpDate,returnDate,"reduxData");
+// //   const handleSearch = () => {
+// //     console.log('Filters:', { location, pickUpDate, returnDate });
+// //     navigate('/cars/indore');
+// //   };
+
+// //   const slides = [
+// //     {
+// //       img: '/images/card1.png',
+// //       title: '',
+// //       description:
+// //         ''
+// //     },
+// //     {
+// //       img: '/images/card2.png',
+// //       title: '',
+// //       description:
+// //         '',
+// //     },
+// //     {
+// //       img: '/images/card3.png',
+// //       title: '',
+// //       description:
+// //         '',
+// //     },
+// //     {
+// //       img: '/images/card4.png',
+// //       title: '24/7 Roadside Assistance',
+// //       description:
+// //         'Travel worry-free with round-the-clock support across major cities',
+// //     },
+// //   ];
+
+// //   return (
+// //     <section className="relative w-full h-[90vh] md:h-screen">
+// //       {/* Background Carousel */}
+// //       <Carousel
+// //         autoPlay
+// //         infiniteLoop
+// //         interval={5000}
+// //         showThumbs={false}
+// //         showStatus={false}
+// //         showArrows={false}
+// //         showIndicators
+// //         transitionTime={800}
+// //       >
+// //         {slides.map((slide, i) => (
+// //           <div key={i} className="relative h-[90vh] md:h-screen">
+// //             <img
+// //               src={slide.img}
+// //               alt={`slide-${i}`}
+// //               className="object-cover w-full h-full"
+// //             />
+// //             <div className="absolute inset-0 bg-black/10"></div>
+// //             <div className="absolute bottom-16 md:bottom-24 left-4 md:left-16 text-white z-20 max-w-xl md:max-w-2xl px-4 md:px-16">
+// //               <h2
+// //                 className="text-3xl md:text-5xl font-extrabold mb-3 md:mb-4 drop-shadow-xl"
+// //                 style={{ color: 'rgba(49, 46, 129, 0.6)' }}
+// //               >
+// //                 {slide.title}
+// //               </h2>
+// //               <p
+// //                 className="text-base md:text-lg font-medium"
+// //                 style={{ color: 'rgba(49, 46, 129, 0.6)' }}
+// //               >
+// //                 {slide.description}
+// //               </p>
+// //             </div>
+// //           </div>
+// //         ))}
+// //       </Carousel>
+
+// //       {/* Tabs + Search Filter Box */}
+// //       <div className="absolute font-montserrat flex flex-col left-24 top-24 md:top-36 w-full items-start">
+// //         {/* Tabs */}
+// //         <div>
+// //           <button
+// //             onClick={() => setActiveTab('daily')}
+// //             className={`px-3 md:px-4 min-w-[200px] py-2 rounded-tl-md font-medium border text-sm transition ${
+// //               activeTab === 'daily'
+// //                 ? ''
+// //                 : 'bg-slate-200 text-black hover:bg-purple-50'
+// //             }`}
+// //             style={
+// //               activeTab === 'daily'
+// //                 ? {
+// //                     backgroundColor: 'rgba(49, 46, 129, 0.6)',
+// //                     color: 'white',
+// //                     borderColor: '#6b21a8',
+// //                   }
+// //                 : {}
+// //             }
+// //           >
+// //             Daily Rentals
+// //           </button>
+
+// //           <button
+// //             onClick={() => setActiveTab('monthly')}
+// //             className={`px-3 md:px-4 py-2 min-w-[200px] rounded-tr-md font-medium border text-sm transition ${
+// //               activeTab === 'monthly'
+// //                 ? ''
+// //                 : 'bg-slate-200 text-black hover:bg-purple-50'
+// //             }`}
+// //             style={
+// //               activeTab === 'monthly'
+// //                 ? {
+// //                     backgroundColor: 'rgba(49, 46, 129, 0.6)',
+// //                     color: 'white',
+// //                     borderColor: '#6b21a8',
+// //                   }
+// //                 : {}
+// //             }
+// //           >
+// //             Monthly Subscription
+// //           </button>
+// //         </div>
+
+// //         {/* Search Filter Box */}
+// //         <div className="flex flex-row items-center justify-between w-[50%] p-3 bg-primary-500 rounded-bl-md rounded-tr-md rounded-br-md">
+// //           {/* Location */}
+// //           <div className="flex flex-col w-[100px] md:w-1/6 gap-0 cursor-pointer">
+// //             <label
+// //               htmlFor="location"
+// //               className="text-sm pl-2 font-semibold text-gray-700 cursor-pointer"
+// //             >
+// //               Location
+// //             </label>
+// //             <div className="relative">
+// //               <select
+// //                 id="location"
+// //                 value={location}
+// //                 onChange={(e) => dispatch(setLocation(e.target.value))}
+// //                 className="appearance-none w-full text-12 px-2 rounded-lg bg-white text-gray-500 cursor-pointer focus:outline-none"
+// //               >
+// //                 <option value="">Add City</option>
+// //                 <option value="Indore">Indore</option>
+// //                 <option value="Jaipur">Jaipur</option>
+// //                 <option value="Delhi">Delhi</option>
+// //               </select>
+// //             </div>
+// //           </div>
+
+// //           {/* Daily Rentals */}
+// //           {activeTab === 'daily' && (
+// //             <>
+// //               <CustomDatePicker
+// //                 label="Pick-Up Date & Time"
+// //                 selected={pickUpDate}
+// //                 onChange={(date) => dispatch(setPickUpDate(date))}
+// //                 showTimeSelect
+// //                 placeholderText="Select pick-up date"
+// //               />
+
+// //               <CustomDatePicker
+// //                 label="Return Date & Time"
+// //                 selected={returnDate}
+// //                 onChange={(date) => dispatch(setReturnDate(date))}
+// //                 showTimeSelect
+// //                 placeholderText="Select return date"
+// //               />
+// //             </>
+// //           )}
+
+// //           {/* Monthly Subscription */}
+// //           {activeTab === 'monthly' && (
+// //             <CustomDatePicker
+// //               label="Pick-Up Date & Time"
+// //               selected={pickUpDate}
+// //               onChange={(date) => dispatch(setPickUpDate(date))}
+// //               showTimeSelect
+// //               placeholderText="Select pick-up date"
+// //             />
+// //           )}
+
+// //           {/* Search Button */}
+// //           <CustomButton
+// //             variant="primary"
+// //             className="bg-purple-700 text-white hover:bg-purple-800 px-2 font-semibold shadow-md transition !rounded-full max-h-[40px] md:w-auto text-sm md:text-base"
+// //             onClick={handleSearch}
+// //           >
+// //             Search
+// //           </CustomButton>
+// //         </div>
+// //       </div>
+// //     </section>
+// //   );
+// // };
+
+// // export default HeroCarousel;
+// import React, { useState } from "react";
+// import { Carousel } from "react-responsive-carousel";
+// import CustomDatePicker from "@/components/custom-datepicker/DatePicker";
+// import CustomButton from "@/components/custom-button/Button";
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
+// import { useNavigate } from "react-router-dom";
+// import { useDispatch, useSelector } from "react-redux";
+// import { setLocation, setPickUpDate, setReturnDate } from "@/redux/slices/filterSlice";
+// import { getReq } from "@/utils/apiHandlers";
 
 // const HeroCarousel = () => {
-//   const [activeTab, setActiveTab] = useState('daily');
+//   const [activeTab, setActiveTab] = useState("daily");
+//   const [loading, setLoading] = useState(false);
 //   const navigate = useNavigate();
 //   const dispatch = useDispatch();
 
-//   // Redux state
-//   const { location, pickUpDate, returnDate } = useSelector(
-//     (state) => state.filters
-//   );
-//   console.log(location,pickUpDate,returnDate,"reduxData");
-//   const handleSearch = () => {
-//     console.log('Filters:', { location, pickUpDate, returnDate });
-//     navigate('/cars/indore');
+//   const { location, pickUpDate, returnDate } = useSelector((state) => state.filters);
+
+//   const handleSearch = async () => {
+//     if (!location) {
+//       alert("Please select a location before searching.");
+//       return;
+//     }
+
+//     try {
+//       setLoading(true);
+//       const endpoint = `cars/search/location?city=${location}`;
+//       const response = await getReq(endpoint);
+//        console.log(response,"response");
+//       if (response.status) {
+//         console.log("Cars found:", response.data);
+
+//         // ✅ Send to next page with API data and selected filters
+//         navigate(`/cars/${location.toLowerCase()}`, {
+//           state: {
+//             cars: response.data.data,
+//             filters: {
+//               location,
+//               pickUpDate,
+//               returnDate,
+//               activeTab,
+//             },
+//           },
+//         });
+//       } else {
+//         alert("No cars found or API error!");
+//       }
+//     } catch (err) {
+//       console.error("Error fetching cars:", err);
+//       alert("Failed to fetch car data!");
+//     } finally {
+//       setLoading(false);
+//     }
 //   };
 
 //   const slides = [
+//     { img: "/images/card1.png", title: "", description: "" },
+//     { img: "/images/card2.png", title: "", description: "" },
+//     { img: "/images/card3.png", title: "", description: "" },
 //     {
-//       img: '/images/card1.png',
-//       title: '',
-//       description:
-//         ''
-//     },
-//     {
-//       img: '/images/card2.png',
-//       title: '',
-//       description:
-//         '',
-//     },
-//     {
-//       img: '/images/card3.png',
-//       title: '',
-//       description:
-//         '',
-//     },
-//     {
-//       img: '/images/card4.png',
-//       title: '24/7 Roadside Assistance',
-//       description:
-//         'Travel worry-free with round-the-clock support across major cities',
+//       img: "/images/card4.png",
+//       title: "24/7 Roadside Assistance",
+//       description: "Travel worry-free with round-the-clock support across major cities",
 //     },
 //   ];
 
@@ -71,22 +293,18 @@
 //       >
 //         {slides.map((slide, i) => (
 //           <div key={i} className="relative h-[90vh] md:h-screen">
-//             <img
-//               src={slide.img}
-//               alt={`slide-${i}`}
-//               className="object-cover w-full h-full"
-//             />
+//             <img src={slide.img} alt={`slide-${i}`} className="object-cover w-full h-full" />
 //             <div className="absolute inset-0 bg-black/10"></div>
 //             <div className="absolute bottom-16 md:bottom-24 left-4 md:left-16 text-white z-20 max-w-xl md:max-w-2xl px-4 md:px-16">
 //               <h2
 //                 className="text-3xl md:text-5xl font-extrabold mb-3 md:mb-4 drop-shadow-xl"
-//                 style={{ color: 'rgba(49, 46, 129, 0.6)' }}
+//                 style={{ color: "rgba(49, 46, 129, 0.6)" }}
 //               >
 //                 {slide.title}
 //               </h2>
 //               <p
 //                 className="text-base md:text-lg font-medium"
-//                 style={{ color: 'rgba(49, 46, 129, 0.6)' }}
+//                 style={{ color: "rgba(49, 46, 129, 0.6)" }}
 //               >
 //                 {slide.description}
 //               </p>
@@ -100,19 +318,13 @@
 //         {/* Tabs */}
 //         <div>
 //           <button
-//             onClick={() => setActiveTab('daily')}
+//             onClick={() => setActiveTab("daily")}
 //             className={`px-3 md:px-4 min-w-[200px] py-2 rounded-tl-md font-medium border text-sm transition ${
-//               activeTab === 'daily'
-//                 ? ''
-//                 : 'bg-slate-200 text-black hover:bg-purple-50'
+//               activeTab === "daily" ? "" : "bg-slate-200 text-black hover:bg-purple-50"
 //             }`}
 //             style={
-//               activeTab === 'daily'
-//                 ? {
-//                     backgroundColor: 'rgba(49, 46, 129, 0.6)',
-//                     color: 'white',
-//                     borderColor: '#6b21a8',
-//                   }
+//               activeTab === "daily"
+//                 ? { backgroundColor: "rgba(49, 46, 129, 0.6)", color: "white", borderColor: "#6b21a8" }
 //                 : {}
 //             }
 //           >
@@ -120,19 +332,13 @@
 //           </button>
 
 //           <button
-//             onClick={() => setActiveTab('monthly')}
+//             onClick={() => setActiveTab("monthly")}
 //             className={`px-3 md:px-4 py-2 min-w-[200px] rounded-tr-md font-medium border text-sm transition ${
-//               activeTab === 'monthly'
-//                 ? ''
-//                 : 'bg-slate-200 text-black hover:bg-purple-50'
+//               activeTab === "monthly" ? "" : "bg-slate-200 text-black hover:bg-purple-50"
 //             }`}
 //             style={
-//               activeTab === 'monthly'
-//                 ? {
-//                     backgroundColor: 'rgba(49, 46, 129, 0.6)',
-//                     color: 'white',
-//                     borderColor: '#6b21a8',
-//                   }
+//               activeTab === "monthly"
+//                 ? { backgroundColor: "rgba(49, 46, 129, 0.6)", color: "white", borderColor: "#6b21a8" }
 //                 : {}
 //             }
 //           >
@@ -165,8 +371,8 @@
 //             </div>
 //           </div>
 
-//           {/* Daily Rentals */}
-//           {activeTab === 'daily' && (
+//           {/* Date pickers */}
+//           {activeTab === "daily" && (
 //             <>
 //               <CustomDatePicker
 //                 label="Pick-Up Date & Time"
@@ -186,8 +392,7 @@
 //             </>
 //           )}
 
-//           {/* Monthly Subscription */}
-//           {activeTab === 'monthly' && (
+//           {activeTab === "monthly" && (
 //             <CustomDatePicker
 //               label="Pick-Up Date & Time"
 //               selected={pickUpDate}
@@ -200,10 +405,11 @@
 //           {/* Search Button */}
 //           <CustomButton
 //             variant="primary"
+//             disabled={loading}
 //             className="bg-purple-700 text-white hover:bg-purple-800 px-2 font-semibold shadow-md transition !rounded-full max-h-[40px] md:w-auto text-sm md:text-base"
 //             onClick={handleSearch}
 //           >
-//             Search
+//             {loading ? "Searching..." : "Search"}
 //           </CustomButton>
 //         </div>
 //       </div>
@@ -212,6 +418,7 @@
 // };
 
 // export default HeroCarousel;
+
 import React, { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import CustomDatePicker from "@/components/custom-datepicker/DatePicker";
@@ -240,20 +447,11 @@ const HeroCarousel = () => {
       setLoading(true);
       const endpoint = `cars/search/location?city=${location}`;
       const response = await getReq(endpoint);
-       console.log(response,"response");
       if (response.status) {
-        console.log("Cars found:", response.data);
-
-        // ✅ Send to next page with API data and selected filters
         navigate(`/cars/${location.toLowerCase()}`, {
           state: {
             cars: response.data.data,
-            filters: {
-              location,
-              pickUpDate,
-              returnDate,
-              activeTab,
-            },
+            filters: { location, pickUpDate, returnDate, activeTab },
           },
         });
       } else {
@@ -268,9 +466,9 @@ const HeroCarousel = () => {
   };
 
   const slides = [
-    { img: "/images/card1.png", title: "", description: "" },
-    { img: "/images/card2.png", title: "", description: "" },
-    { img: "/images/card3.png", title: "", description: "" },
+    { img: "/images/card1.png" },
+    { img: "/images/card2.png" },
+    { img: "/images/card3.png" },
     {
       img: "/images/card4.png",
       title: "24/7 Roadside Assistance",
@@ -279,7 +477,7 @@ const HeroCarousel = () => {
   ];
 
   return (
-    <section className="relative w-full h-[90vh] md:h-screen">
+    <section className="relative w-full h-[80vh] sm:h-[90vh] md:h-screen">
       {/* Background Carousel */}
       <Carousel
         autoPlay
@@ -292,88 +490,98 @@ const HeroCarousel = () => {
         transitionTime={800}
       >
         {slides.map((slide, i) => (
-          <div key={i} className="relative h-[90vh] md:h-screen">
+          <div key={i} className="relative h-[80vh] sm:h-[90vh] md:h-screen">
             <img src={slide.img} alt={`slide-${i}`} className="object-cover w-full h-full" />
             <div className="absolute inset-0 bg-black/10"></div>
-            <div className="absolute bottom-16 md:bottom-24 left-4 md:left-16 text-white z-20 max-w-xl md:max-w-2xl px-4 md:px-16">
-              <h2
-                className="text-3xl md:text-5xl font-extrabold mb-3 md:mb-4 drop-shadow-xl"
-                style={{ color: "rgba(49, 46, 129, 0.6)" }}
-              >
-                {slide.title}
-              </h2>
-              <p
-                className="text-base md:text-lg font-medium"
-                style={{ color: "rgba(49, 46, 129, 0.6)" }}
-              >
-                {slide.description}
-              </p>
-            </div>
+            {slide.title && (
+              <div className="absolute bottom-8 sm:bottom-16 md:bottom-24 left-4 sm:left-8 md:left-16 text-white z-20 max-w-xs sm:max-w-xl md:max-w-2xl px-4 sm:px-8 md:px-16">
+                <h2
+                  className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-2 sm:mb-3 md:mb-4 drop-shadow-xl"
+                  style={{ color: "rgba(49, 46, 129, 0.6)" }}
+                >
+                  {slide.title}
+                </h2>
+                <p
+                  className="text-sm sm:text-base md:text-lg font-medium"
+                  style={{ color: "rgba(49, 46, 129, 0.6)" }}
+                >
+                  {slide.description}
+                </p>
+              </div>
+            )}
           </div>
         ))}
       </Carousel>
 
-      {/* Tabs + Search Filter Box */}
-      <div className="absolute font-montserrat flex flex-col left-24 top-24 md:top-36 w-full items-start">
+      {/* Tabs + Search Box */}
+      <div className="absolute font-montserrat flex flex-col left-4 sm:left-10 md:left-24  top-16 sm:top-24 md:top-36 w-[90%] sm:w-[80%] md:w-full items-start z-30">
         {/* Tabs */}
-        <div>
+        <div className="flex flex-wrap">
           <button
             onClick={() => setActiveTab("daily")}
-            className={`px-3 md:px-4 min-w-[200px] py-2 rounded-tl-md font-medium border text-sm transition ${
-              activeTab === "daily" ? "" : "bg-slate-200 text-black hover:bg-purple-50"
-            }`}
-            style={
+            className={`px-3 sm:px-4 py-2 min-w-[140px] sm:min-w-[180px] md:min-w-[200px] rounded-tl-md font-medium border text-xs sm:text-sm transition ${
               activeTab === "daily"
-                ? { backgroundColor: "rgba(49, 46, 129, 0.6)", color: "white", borderColor: "#6b21a8" }
-                : {}
-            }
+                ? "bg-indigo-700 text-white border-indigo-900"
+                : "bg-slate-200 text-black hover:bg-purple-50"
+            }`}
           >
             Daily Rentals
           </button>
 
           <button
             onClick={() => setActiveTab("monthly")}
-            className={`px-3 md:px-4 py-2 min-w-[200px] rounded-tr-md font-medium border text-sm transition ${
-              activeTab === "monthly" ? "" : "bg-slate-200 text-black hover:bg-purple-50"
-            }`}
-            style={
+            className={`px-3 sm:px-4 py-2 min-w-[140px] sm:min-w-[180px] md:min-w-[200px] rounded-tr-md font-medium border text-xs sm:text-sm transition ${
               activeTab === "monthly"
-                ? { backgroundColor: "rgba(49, 46, 129, 0.6)", color: "white", borderColor: "#6b21a8" }
-                : {}
-            }
+                ? "bg-indigo-700 text-white border-indigo-900"
+                : "bg-slate-200 text-black hover:bg-purple-50"
+            }`}
           >
             Monthly Subscription
           </button>
         </div>
 
         {/* Search Filter Box */}
-        <div className="flex flex-row items-center justify-between w-[50%] p-3 bg-primary-500 rounded-bl-md rounded-tr-md rounded-br-md">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 md:gap-6 w-full sm:w-[90%] md:w-[55%] p-4 bg-white/90 backdrop-blur-md rounded-b-md shadow-md">
           {/* Location */}
-          <div className="flex flex-col w-[100px] md:w-1/6 gap-0 cursor-pointer">
-            <label
-              htmlFor="location"
-              className="text-sm pl-2 font-semibold text-gray-700 cursor-pointer"
-            >
+          <div className="flex flex-col w-full sm:w-1/4 md:w-1/6">
+            <label htmlFor="location" className="text-xs sm:text-sm font-semibold text-gray-700">
               Location
             </label>
-            <div className="relative">
-              <select
-                id="location"
-                value={location}
-                onChange={(e) => dispatch(setLocation(e.target.value))}
-                className="appearance-none w-full text-12 px-2 rounded-lg bg-white text-gray-500 cursor-pointer focus:outline-none"
-              >
-                <option value="">Add City</option>
-                <option value="Indore">Indore</option>
-                <option value="Jaipur">Jaipur</option>
-                <option value="Delhi">Delhi</option>
-              </select>
-            </div>
+            <select
+              id="location"
+              value={location}
+              onChange={(e) => dispatch(setLocation(e.target.value))}
+              className="appearance-none w-full px-2 py-1 rounded-lg bg-white border border-gray-300 text-gray-700 text-sm cursor-pointer focus:outline-none"
+            >
+              <option value="">Add City</option>
+              <option value="Indore">Indore</option>
+              <option value="Jaipur">Jaipur</option>
+              <option value="Delhi">Delhi</option>
+            </select>
           </div>
 
-          {/* Date pickers */}
-          {activeTab === "daily" && (
-            <>
+          {/* Dates */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
+            {activeTab === "daily" && (
+              <>
+                <CustomDatePicker
+                  label="Pick-Up Date & Time"
+                  selected={pickUpDate}
+                  onChange={(date) => dispatch(setPickUpDate(date))}
+                  showTimeSelect
+                  placeholderText="Select pick-up date"
+                />
+                <CustomDatePicker
+                  label="Return Date & Time"
+                  selected={returnDate}
+                  onChange={(date) => dispatch(setReturnDate(date))}
+                  showTimeSelect
+                  placeholderText="Select return date"
+                />
+              </>
+            )}
+
+            {activeTab === "monthly" && (
               <CustomDatePicker
                 label="Pick-Up Date & Time"
                 selected={pickUpDate}
@@ -381,36 +589,20 @@ const HeroCarousel = () => {
                 showTimeSelect
                 placeholderText="Select pick-up date"
               />
-
-              <CustomDatePicker
-                label="Return Date & Time"
-                selected={returnDate}
-                onChange={(date) => dispatch(setReturnDate(date))}
-                showTimeSelect
-                placeholderText="Select return date"
-              />
-            </>
-          )}
-
-          {activeTab === "monthly" && (
-            <CustomDatePicker
-              label="Pick-Up Date & Time"
-              selected={pickUpDate}
-              onChange={(date) => dispatch(setPickUpDate(date))}
-              showTimeSelect
-              placeholderText="Select pick-up date"
-            />
-          )}
+            )}
+          </div>
 
           {/* Search Button */}
-          <CustomButton
-            variant="primary"
-            disabled={loading}
-            className="bg-purple-700 text-white hover:bg-purple-800 px-2 font-semibold shadow-md transition !rounded-full max-h-[40px] md:w-auto text-sm md:text-base"
-            onClick={handleSearch}
-          >
-            {loading ? "Searching..." : "Search"}
-          </CustomButton>
+          <div className="w-full sm:w-auto">
+            <CustomButton
+              variant="primary"
+              disabled={loading}
+              className="w-full sm:w-auto bg-purple-700 text-white hover:bg-purple-800 px-6 py-2 font-semibold shadow-md transition rounded-full text-sm"
+              onClick={handleSearch}
+            >
+              {loading ? "Searching..." : "Search"}
+            </CustomButton>
+          </div>
         </div>
       </div>
     </section>

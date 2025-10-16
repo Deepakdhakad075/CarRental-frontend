@@ -48,13 +48,10 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 font-montserrat w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white text-black shadow-md" : "bg-transparent text-white"
+        isScrolled || isMenuOpen ? "bg-white text-black shadow-md" : " text-white"
       }`}
     >
-      <div
-        className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6"
-        style={{ height: "74px" }}
-      >
+      <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6" style={{ height: "74px" }}>
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
           <img src="/images/logo.png" alt="Logo" className="h-20 cursor-pointer" />
@@ -67,11 +64,11 @@ const Navbar = () => {
               <Link
                 to={link.to}
                 className={`relative group ${
-                  isScrolled ? "text-gray-700" : "text-indigo-900"
-                } hover:text-indigo-500 transition-colors`}
+                  isScrolled || isMenuOpen ? "text-gray-700" : "text-white"
+                } hover:text-red-600 transition-colors`}
               >
                 {link.label}
-                <span className="absolute left-0 top-5 bottom-0 w-0 h-[2px] bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
             </li>
           ))}
@@ -146,20 +143,21 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Dropdown Menu */}
-      {isMenuOpen && (
-        <div
-          className={`md:hidden flex flex-col items-center space-y-6 py-6 transition-all duration-300 ${
-            isScrolled ? "bg-white text-black shadow-md" : "bg-gray-900 text-white"
-          }`}
-        >
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
+          isMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+        } ${isScrolled || isMenuOpen ? "bg-white text-black shadow-md" : "bg-blue-900 text-white"}`}
+      >
+        <div className="flex flex-col items-center space-y-6 py-6">
           {navLinks.map((link, index) => (
             <Link
               key={index}
               to={link.to}
-              className="text-lg font-medium hover:text-indigo-500 transition-colors"
+              className="text-lg font-medium text-white hover:text-red-600 relative group transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               {link.label}
+              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 transition-all duration-300 group-hover:w-full"></span>
             </Link>
           ))}
 
@@ -168,23 +166,26 @@ const Navbar = () => {
               <Link
                 to="/profile"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-lg hover:text-indigo-500"
+                className="text-lg text-white hover:text-red-600 relative group transition-colors"
               >
                 Profile
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
                 to="/kyc"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-lg hover:text-indigo-500"
+                className="text-lg text-white hover:text-red-600 relative group transition-colors"
               >
                 KYC
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
                 to="/bookings"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-lg hover:text-indigo-500"
+                className="text-lg text-white hover:text-red-600 relative group transition-colors"
               >
                 Bookings
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <button
                 onClick={() => {
@@ -209,7 +210,7 @@ const Navbar = () => {
             </CustomButton>
           )}
         </div>
-      )}
+      </div>
     </nav>
   );
 };

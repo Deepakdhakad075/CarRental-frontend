@@ -48,11 +48,11 @@ const cardVariants = {
 
 const FeaturesSection = () => {
   return (
-    <section className="bg-gray-100 py-16 px-6 h-full">
+    <section className="bg-slate-200 py-16 px-6 h-full">
       <div className="text-center mb-20">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-800">
           Features & Benefits of Renting a{" "}
-          <span className="text-indigo-700">Self-Drive Car</span>
+          <span className="text-red-600">Self-Drive Car</span>
         </h2>
       </div>
 
