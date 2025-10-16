@@ -32,7 +32,7 @@ const handleApiError = (err) => {
 };
 
 export const postReq = async (endpoint, data) => {
-  const url = process.env.REACT_APP_API_URL + endpoint;
+  const url = 'https://mansharpcarrental.onrender.com/api/' + endpoint;
 
   return await axios
     .post(url, data, { withCredentials: true })
@@ -45,7 +45,7 @@ export const postReq = async (endpoint, data) => {
 };
 
 export const patchReq = async (endpoint, data) => {
-  const url = process.env.REACT_APP_API_URL + endpoint;
+  const url = 'https://mansharpcarrental.onrender.com/api/' + endpoint;
 
   return await axios
     .patch(url, data, { withCredentials: true })
@@ -58,7 +58,7 @@ export const patchReq = async (endpoint, data) => {
 };
 
 export const getReq = async (endpoint) => {
-  const url = process.env.REACT_APP_API_URL + endpoint;
+  const url = 'https://mansharpcarrental.onrender.com/api/' + endpoint;
 
   return await axios
     .get(url, { withCredentials: true })
