@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+    "axios": "^1.6.8",
     "framer-motion": "^12.23.24",
     "i18next": "^23.1.0",
     "i18next-browser-languagedetector": "^7.0.2",

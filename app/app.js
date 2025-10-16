@@ -13,22 +13,10 @@ import Fleets from './containers/Layout/Fleets/Fleets';
 import About from './containers/Layout/About/About';
 import store from './redux/store';
 import CarListingPage from './containers/Layout/CarListingPage';
-import Faq from './containers/Layout/FAQ/Faq';
+import 'react-toastify/dist/ReactToastify.css';
 import Profile from './containers/Profile/Profile';
+import Faq from './containers/Layout/FAQ/Faq';
 import Everification from './containers/Layout/Everification/E-verification';
-
-// const sagaMiddleware = createSagaMiddleware();
-// const reducer = createReducer();
-// const store = configureStore({
-//   reducer,
-//   middleware: (getDefaultMiddleware) =>
-//     getDefaultMiddleware().concat(sagaMiddleware),
-//   devTools:
-//     window.__REDUX_DEVTOOLS_EXTENSION__ &&
-//     window.__REDUX_DEVTOOLS_EXTENSION__(),
-// });
-
-// sagaMiddleware.run(rootSaga);
 
 function AppContent() {
   const location = useLocation();
@@ -51,7 +39,6 @@ function AppContent() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/custom-verification" element={<Everification />} />
         <Route path="/cars/:city" element={<CarListingPage />} />
-
         <Route path="/*" element={<NotFound />} />
       </Routes>
       {!hideNavbar && <Footer />}
@@ -64,19 +51,13 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <AppContent />
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar
+          theme="colored"
+        />
       </BrowserRouter>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover={false}
-        theme="colored"
-      />
     </Provider>
   );
 }

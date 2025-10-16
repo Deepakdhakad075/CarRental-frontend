@@ -111,7 +111,7 @@ function CarCard({ car, wide }) {
             <img
               src={car.img}
               alt={car.name}
-              className="object-cover  rounded-lg border w-full h-full"
+              className="object-cover  rounded-lg border w-full "
             />
           </div>
           {/* Info & Packages */}
@@ -173,7 +173,7 @@ function CarCard({ car, wide }) {
               <img
                 src={car.img}
                 alt={car.name}
-                className="object-cover rounded-lg border w-full h-full"
+                className="object-cover rounded-lg border w-full "
               />
             </div>
             {/* Car Info & Packages */}
@@ -183,7 +183,7 @@ function CarCard({ car, wide }) {
                   {car.name}{' '}
                   <span className="text-xs text-gray-500">{car.type}</span>
                 </h2>
-                <div className="flex space-x-4 text-indigo-900 mt-1 text-sm font-medium">
+                <div className="flex space-x-3 lg:space-x-4 text-indigo-900 mt-1 text-xs lg:text-sm font-medium">
                   <span>🕹 {car.transmission}</span>
                   <span>⛽ {car.fuel}</span>
                   <span>🚙 {car.seats}</span>
@@ -191,19 +191,19 @@ function CarCard({ car, wide }) {
               </div>
 
               {/* Package Buttons */}
-              <div className="flex rounded-lg bg-white p-1 space-x-2 mt-2">
+              <div className="flex rounded-lg bg-white p-1 space-x-1 lg:space-x-2 mt-1 ">
                 {car.packages.map((pkg, idx) => (
                   <button
                     key={pkg.label}
                     onClick={() => setSelected(idx)}
-                    className={`flex-1 px-2 py-1 rounded-md border text-xs transition-all focus:outline-none ${
+                    className={`flex-1 xl:px-2 px-1 py-1 leading-3 rounded-md border lg:text-xs text-10 transition-all focus:outline-none ${
                       selected === idx
                         ? 'bg-[rgba(49,46,129,0.6)] text-white shadow-md'
                         : 'bg-white text-indigo-900 border-gray-200'
                     }`}
                   >
-                    <div>{pkg.label}</div>
-                    <div className="font-semibold text-sm">₹{pkg.price}</div>
+                    <div className='font-thine'>{pkg.label}</div>
+                    <div className="font-semibold  text-sm">₹{pkg.price}</div>
                     <div className="text-xs mt-1">{pkg.description}</div>
                   </button>
                 ))}
