@@ -28,6 +28,7 @@ const filterSlice = createSlice({
     },
     toggleArrayValue: (state, action) => {
       const { key, value } = action.payload;
+      if (!Array.isArray(state[key])) return; // Extra safe
       if (state[key].includes(value)) {
         state[key] = state[key].filter((v) => v !== value);
       } else {
@@ -37,7 +38,7 @@ const filterSlice = createSlice({
     setPriceSort: (state, action) => {
       state.priceSort = action.payload;
     },
-    resetFilters: () => initialState,
+    resetFilters: () => ({ ...initialState }), // ✅ Important fix
   },
 });
 

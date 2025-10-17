@@ -44,7 +44,7 @@ const FAQsComponent = () => {
 
   return (
     <section className="md:py-16 py-8 px-6 bg-slate-200  font-montserrat">
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row md:gap-12">
         {/* Left Side */}
         <div className="lg:w-1/3">
           <h2 className="text-4xl font-bold text-slate-800 text-center md:text-start  mb-4 relative inline-block">

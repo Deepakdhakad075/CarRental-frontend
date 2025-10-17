@@ -10,6 +10,8 @@ import { Navigate, useNavigate } from 'react-router-dom';
 export default function RegistrationPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const isLoggedIn = Cookies.get('__user__isLoggedIn') === 'true';
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -21,7 +23,11 @@ export default function RegistrationPage() {
 
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/');
+    }
+  }, []);
   const validate = () => {
     const newErrors = {};
     if (!formData.firstName.trim())
@@ -93,7 +99,7 @@ export default function RegistrationPage() {
           <p className="text-base text-center text-gray-600 mb-1 md:mb-6">
             Already have an account?{' '}
             <a
-              href="/login"
+              onClick={() => navigate('/login')}
               className="text-blue-600 font-semibold hover:underline"
             >
               Login here!

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
@@ -10,15 +10,21 @@ import { useNavigate } from 'react-router-dom';
 export default function LoginPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const isLoggedIn = Cookies.get("__user__isLoggedIn") === "true";
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
 
+
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
+  useEffect(()=>{
+if(isLoggedIn){
+  navigate('/');
+}
+  },[])
   // Simple validation
   const validate = () => {
     const newErrors = {};
@@ -79,7 +85,7 @@ export default function LoginPage() {
           <p className="text-base text-center text-gray-600 mb-6">
             Don’t have an account?{' '}
             <a
-              href="/registration"
+            onClick={()=>navigate('/registration')}
               className="text-blue-600 font-semibold hover:underline"
             >
               Register here!

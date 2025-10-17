@@ -59,7 +59,7 @@ const BookingSteps = () => {
       variant="white"
       header={
         <>
-          <h1 className="text-2xl bg-slate-200 md:text-4xl font-bold text-center text-slate-800 mb-2 font-montserrat">
+          <h1 className="text-2xl bg-slate-200 md:text-4xl font-bold text-center text-slate-800 md:mb-2 font-montserrat">
             Our Facilities
           </h1>
         </>
@@ -71,7 +71,7 @@ const BookingSteps = () => {
           {featuresLeft.map((item, index) => (
             <div key={index}>
               <div className="flex items-center justify-center md:justify-end gap-2 mb-2 text-lg md:text-xl font-bold text-[#0f1c4d] font-montserrat">
-                <FaBullseye className="text-red-500" />
+                <FaBullseye className="text-red-500 "  />
                 <span>{item.title}</span>
               </div>
               <p className="text-gray-600 text-sm md:text-base">
